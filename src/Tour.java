@@ -14,21 +14,39 @@ public class Tour {
 	 * Construit une tour vide de tout disque.
 	 */
 	public Tour() {
-		nb = 0;
-		disques = new int[MAX];
+      	this (0);     	/* appelle d'un autre constructor*/
 	}
 
 	/**
 	 * une tour plein .
 	 */
 	 public Tour( int N) {
-		 disques = new int[N];
-		 for (int i = 0; i < N ; ++i){
-			 this.disques[i] =  i;
+		 assert(N < MAX);
+		 disques = new int[MAX];
+		 nb = 0;
+		 for (;  N > 0; --N){
+			 ajouter(N);
 		 }
 	 }
+	 public void ajouter(int N){
+		 assert(!Tplein() &&  Tvide() || getSommet() > N)  ;
+	 }
+	 public void retirer(){
+		 assert(!Tvide());
+	 }
+	 public int getSommet(){
+		 assert(!Tvide());
+		 
+		 return 0;
+	 }
 
+	 public boolean Tvide(){
+		 return true;
+	 }
 
+	  public boolean Tplein(){
+	    return true;
+	  }
 
 	/**
 	 * Retourne le nombre de disques �tant sur la tour.
@@ -49,18 +67,6 @@ public class Tour {
 			sb.append(disques[i]);
 		}
 		return sb.toString() + "]";
-	}
-//	public void Dep(){
-//		assert(this.disques.length != 0);
-//
-//	}
-//	public void Inter(){
-//		assert(this.disques.length == 0);
-//
-//	}
-//	public void Arr(){
-//		assert (this.disques.length == 0);
-//
-//	}
+	};
 
 }

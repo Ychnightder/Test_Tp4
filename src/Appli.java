@@ -51,7 +51,10 @@ public class Appli {
 
 		final int TAILLE = 3, N = 20;
 		Tour[] tours = new Tour[TAILLE];
-//		tours[0] = new Tour(N);
+		tours[0] = new Tour(N);
+		for (int i = 1; i < TAILLE; i++){
+			tours[i] = new Tour();
+		}
 
 		// A compl�ter
 		// Initialiser le tableau de fa�on � ce que tours[0] contienne
